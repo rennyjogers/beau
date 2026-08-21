@@ -1,0 +1,44 @@
+backend:
+  name: git-gateway
+  branch: main
+
+publish_mode: editorial_workflow
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "writings"
+    label: "Writings"
+    files:
+      - name: "articles"
+        label: "Articles"
+        file: "writings/articles.json"
+        format: "json"
+        fields:
+          - label: "Articles"
+            name: "articles"
+            widget: "list"
+            collapsed: true
+            summary: "{{title}}"
+            fields:
+              - label: "URL name"
+                name: "slug"
+                widget: "string"
+                hint: "Use lowercase words separated by hyphens, for example: my-first-op-ed"
+              - label: "Title"
+                name: "title"
+                widget: "string"
+              - label: "Date"
+                name: "date"
+                widget: "datetime"
+                date_format: "YYYY-MM-DD"
+                time_format: false
+              - label: "Preview"
+                name: "excerpt"
+                widget: "text"
+                hint: "Write 3–4 sentences that will appear on the writings page."
+              - label: "Article"
+                name: "body"
+                widget: "text"
+                hint: "Write the full article here. Separate paragraphs with a blank line."
